@@ -23,5 +23,9 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "nativescript-mobile": {
+      "tags": []
+    }
+  }
 }

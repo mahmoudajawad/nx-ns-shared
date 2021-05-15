@@ -1,9 +1,81 @@
 {
-  
-  
   "version": 2,
-  
-  "projects": {},
+  "projects": {
+    "nativescript-mobile": {
+      "projectType": "application",
+      "root": "apps/nativescript-mobile/",
+      "sourceRoot": "apps/nativescript-mobile/src",
+      "prefix": "",
+      "targets": {
+        "build": {
+          "executor": "@nativescript/nx:build",
+          "options": {
+            "noHmr": true,
+            "production": true,
+            "uglify": true,
+            "release": true,
+            "forDevice": true
+          },
+          "configurations": {
+            "prod": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/nativescript-mobile/src/environments/environment.ts",
+                  "with": "apps/nativescript-mobile/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "ios": {
+          "executor": "@nativescript/nx:build",
+          "options": {
+            "platform": "ios"
+          },
+          "configurations": {
+            "prod": {
+              "combineWithConfig": "build:prod"
+            }
+          }
+        },
+        "android": {
+          "executor": "@nativescript/nx:build",
+          "options": {
+            "platform": "android"
+          },
+          "configurations": {
+            "prod": {
+              "combineWithConfig": "build:prod"
+            }
+          }
+        },
+        "clean": {
+          "executor": "@nativescript/nx:build",
+          "options": {
+            "clean": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/nativescript-mobile/**/*.ts",
+              "apps/nativescript-mobile/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/nativescript-mobile/jest.config.js",
+            "tsConfig": "apps/nativescript-mobile/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/nativescript-mobile/src/test-setup.ts"
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
   }
