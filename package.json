@@ -30,6 +30,8 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
+    "@nativescript/nx": "^1.0.4",
+    "@nrwl/angular": "^12.3.3",
     "@nrwl/cli": "12.2.0",
     "@nrwl/tao": "12.2.0",
     "@nrwl/workspace": "12.2.0",
