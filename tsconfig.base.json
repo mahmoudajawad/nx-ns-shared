@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-ns-shared/data": ["libs/data/src/index.ts"]
+      "@nx-ns-shared/data": ["libs/data/src/index.ts"],
+      "@nx-ns-shared/presenters": ["libs/presenters/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
