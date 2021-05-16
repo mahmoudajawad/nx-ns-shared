@@ -3,4 +3,23 @@
 <StackLayout class="p-20">
   <Label text="Enjoy" class="h1 text-center c-white"></Label>
   <Image src="~/assets/images/nx-nativescript.png" class="h-center m-t-20" width="300"></Image>
+
+  <ng-container *ngIf="(user$ | async) as userCall">
+    <Label [text]="userCall | json" textWrap="true"></Label>
+    
+    <ng-container *ngIf="!userCall.loading; else userLoading">
+      <StackLayout *ngIf="userCall.res.args.docs[0] as User">
+        <Label text="_id"></Label>
+        <Label [text]="User._id"></Label>
+        <Label text="Name"></Label>
+        <Label [text]="User.name"></Label>
+        <Label text="Bio"></Label>
+        <Label [text]="User.bio"></Label>
+      </StackLayout>
+    </ng-container>
+
+    <ng-template #userLoading>
+      <Label text="Loading..."></Label>
+    </ng-template>
+  </ng-container>
 </StackLayout>
