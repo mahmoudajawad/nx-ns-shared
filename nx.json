@@ -28,6 +28,9 @@
     "ng-web-e2e": {
       "tags": [],
       "implicitDependencies": ["ng-web"]
+    },
+    "data": {
+      "tags": []
     }
   }
 }

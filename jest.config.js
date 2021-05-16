@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/apps/ng-web'],
+  projects: ['<rootDir>/apps/ng-web', '<rootDir>/libs/data'],
 };
