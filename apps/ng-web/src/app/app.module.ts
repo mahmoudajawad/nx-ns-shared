@@ -5,15 +5,29 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { DataDriverService } from './data-driver.service';
 
-import { PresentersModule } from '@nx-ns-shared/presenters';
+import { DataModule } from '@nx-ns-shared/data';
+import { HomePageModule } from './pages/home/home.module';
+
+const Pages = [];
+const PagesComponents = [];
+const PagesModules = [HomePageModule];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+
+    ...Pages,
+    ...PagesComponents,
+  ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    RouterModule.forRoot([
+      { path: '', redirectTo: '/home', pathMatch: 'full', },
+      { path: 'home', loadChildren: () => import('./pages/home/home.module').then((m) => m.HomePageModule), },
+    ], { initialNavigation: 'enabled' }),
     
-    PresentersModule,
+    DataModule,
+    PagesModules,
   ],
   providers: [
     {

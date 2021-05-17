@@ -7,24 +7,5 @@
   <h1>Welcome to {{ title }}!</h1>
 </header>
 <main>
-  <ng-container *ngIf="(user$ | async) as userCall">
-    <p>{{ userCall | json }}</p>
-    
-    <ng-container *ngIf="!userCall.loading; else userLoading">
-      <dl *ngIf="userCall.res.args.docs[0] as User">
-        <dt>_id</dt>
-        <dd>{{ User._id }}</dd>
-        <dt>Name</dt>
-        <dd>{{ User.name }}</dd>
-        <dt>Bio</dt>
-        <dd>{{ User.bio }}</dd>
-      </dl>
-    </ng-container>
-
-    <ng-template #userLoading>
-      <h3>Loading...</h3>
-    </ng-template>
-  </ng-container>
+  <router-outlet></router-outlet>
 </main>
-
-<router-outlet></router-outlet>
