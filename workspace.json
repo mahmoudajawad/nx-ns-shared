@@ -224,33 +224,6 @@
           }
         }
       }
-    },
-    "presenters": {
-      "projectType": "library",
-      "root": "libs/presenters",
-      "sourceRoot": "libs/presenters/src",
-      "prefix": "nx-ns-shared",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/presenters"
-          ],
-          "options": {
-            "jestConfig": "libs/presenters/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/presenters/src/**/*.ts",
-              "libs/presenters/src/**/*.html"
-            ]
-          }
-        }
-      }
     }
   },
   "cli": {
