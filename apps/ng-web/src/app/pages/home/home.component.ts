@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from '@nx-ns-shared/data';
 import { Observable } from 'rxjs';
-import { CallObj } from 'shared/facades/models';
-import { HomeService } from 'shared/presenters/home.service';
+import { CallObj } from 'shared/facades';
+import { HomeService } from 'shared/presenters';
 
 @Component({
   selector: 'page-home-component',

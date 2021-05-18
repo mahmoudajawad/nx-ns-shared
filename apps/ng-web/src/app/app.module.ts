@@ -6,11 +6,10 @@ import { RouterModule } from '@angular/router';
 import { DataDriverService } from './data-driver.service';
 
 import { DataModule } from '@nx-ns-shared/data';
-import { HomePageModule } from './pages/home/home.module';
 
 const Pages = [];
 const PagesComponents = [];
-const PagesModules = [HomePageModule];
+const PagesModules = [];
 
 @NgModule({
   declarations: [
@@ -27,7 +26,7 @@ const PagesModules = [HomePageModule];
     ], { initialNavigation: 'enabled' }),
     
     DataModule,
-    PagesModules,
+    ...PagesModules,
   ],
   providers: [
     {

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { User } from '@nx-ns-shared/data';
 import { Observable } from 'rxjs';
-import { HomeService } from 'shared/facades/home.service';
-import { CallObj } from 'shared/facades/models';
+import { HomeService } from 'shared/facades';
+import { CallObj } from 'shared/facades';
 
 @Component({
 //   changeDetection: ChangeDetectionStrategy.OnPush,
