@@ -1,11 +1,15 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CoreModule } from './core/core.module';
-import { SharedModule } from './features/shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { DataDriverService } from './data-driver.service';
+import { HomePageModule } from './pages/home/home.module';
+import { DataModule } from '@nx-ns-shared/data';
 
-import { PresentersModule } from '@nx-ns-shared/presenters';
+const Pages = [];
+const PagesComponents = [];
+const PagesModules = [];
 
 @NgModule({
   imports: [
@@ -13,9 +17,14 @@ import { PresentersModule } from '@nx-ns-shared/presenters';
     SharedModule,
     AppRoutingModule,
   
-    PresentersModule,
+    DataModule,
+    ...PagesModules,
   ],
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    ...Pages,
+    ...PagesComponents,
+  ],
   providers: [
     {
       provide: 'DataDriver',

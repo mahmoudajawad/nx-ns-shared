@@ -1,0 +1,30 @@
+<StackLayout>
+  <ScrollView>
+    <GridLayout rows="auto * auto" columns="*">
+      <Button *ngIf="!userInfoToggle" row="0" col="0" text="Show User Info" (tap)="showUserInfo()"></Button>
+
+      <ng-container *ngIf="userInfoToggle">
+        <ng-container *ngIf="(userInfo$ | async) as userCall">
+          <Label row="0" col="0" [text]="userCall | json" textWrap="true"></Label>
+      
+          <ng-container *ngIf="!userCall.loading; else userLoading">
+            <GridLayout *ngIf="userCall.res.args.docs[0] as User" row="1" col="0" rows="* * *" columns="* 2*">
+              <Label row="0" col="0" text="_id"></Label>
+              <Label row="0" col="1" [text]="User._id"></Label>
+              <Label row="1" col="0" text="Name"></Label>
+              <Label row="1" col="1" [text]="User.name"></Label>
+              <Label row="2" col="0" text="Bio"></Label>
+              <Label row="2" col="1" [text]="User.bio"></Label>
+            </GridLayout>
+          </ng-container>
+      
+          <ng-template #userLoading>
+            <Label row="1" col="0" text="Loading..."></Label>
+          </ng-template>
+        </ng-container>
+
+        <Button row="2" col="0" text="Reload User Info" (tap)="reloadUserInfo()"></Button>
+      </ng-container>
+    </GridLayout>
+  </ScrollView>
+</StackLayout>
